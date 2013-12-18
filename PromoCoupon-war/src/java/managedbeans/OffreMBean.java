@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import session.OffreManager;
 
@@ -19,7 +20,7 @@ import session.OffreManager;
  * @author John624
  */
 @Named(value="offreMBean")
-@SessionScoped
+@RequestScoped
 public class OffreMBean implements Serializable{
     private List<Offre> offres;
     @EJB

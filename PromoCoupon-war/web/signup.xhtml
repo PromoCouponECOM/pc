@@ -3,14 +3,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/menu.css" />
-        <link rel="stylesheet" href="css/signup.css" />
+        <link rel="stylesheet" href="css/villes.css" />
+        <link rel="stylesheet" href="css/listeOffres.css" />
         <link rel="stylesheet" href="css/toolbar.css" />
-        <script type="text/javascript" src="js/verif.js"/>
+        <link rel="stylesheet" href="css/listeOffres.css" />
+        <script src="js/lieu.js" type="text/javascript"/>
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#boxLogin').hide(); //Si l'utilisateur a javascript on cache la box de login pour pas surcharger la page
@@ -46,6 +49,10 @@
                 });
             });
         </script>
+        <script type="text/javascript" src="js/lieu.js"></script>
+
+        <title>Toutes les promos</title>
+
 
         <title>Sign Up</title>
     </h:head>
@@ -195,7 +202,7 @@
                                     <td align="right"><b> Civilit&eacute; :*</b></td>
                                     <td align="left"><p:selectOneMenu value="#{inscriptionUserMBean.settings['sexe']}">  
                                             <f:selectItem itemLabel="Madame" itemValue="f" />  
-                                            <f:selectItem itemLabel="Monsieur" itemValue="h" /></p:selectOneMenu>  </td>							
+                                            <f:selectItem itemLabel="Monsieur" itemValue="h" /></p:selectOneMenu></td>							
                                 </tr>
                                 <tr>
                                     <td align="right"><b> Nom* :</b></td>
@@ -224,7 +231,7 @@
                                     <td class="titres" colspan="4" align="left"><b> Vos identifiants </b></td>								
                                 </tr>
                                 <tr>
-                                     <p:messages  id="messages" showDetail="true" autoUpdate="true"/> 
+                                    <p:messages  id="messages" showDetail="true" autoUpdate="true"/> 
                                 </tr>
                                 <tr>
                                     <td align="right"><b> E-mail* :</b></td>
@@ -232,9 +239,9 @@
                                                                   requiredMessage="Please enter your email address."
                                                                   validatorMessage="Invalid email format"
                                                                   >
-                                   
-                                        <f:validateRegex
-                                            pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+
+                                            <f:validateRegex
+                                                pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
 
                                         </h:inputText></td>
                                     <td align="right">&nbsp; &nbsp; <b> Confirmation e-mail* :</b></td>				
@@ -250,9 +257,8 @@
                                     <td colspan="4" align="left"><b> &nbsp; </b></td>								
                                 </tr>
                                 <tr>
-
-                                    <td colspan="4" align="center"><h:commandButton id="update" value="Validate" action="#{inscriptionUserMBean.save()}"/></td>
-
+                                    <td colspan="4" align="center">
+                                        <p:commandButton id="update" value="Validate" update="table" ajax="false" action="#{inscriptionUserMBean.exist()}" /></td>
                                 </tr>
                             </tbody>
                         </table>

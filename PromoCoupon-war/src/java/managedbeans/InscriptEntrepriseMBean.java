@@ -16,6 +16,8 @@ import javax.inject.Named;
 import session.AdresseManager;
 import session.EntrepriseManager;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -79,5 +81,16 @@ public class InscriptEntrepriseMBean implements Serializable {
     
      public Map<String, String> getSettings() {
         return settings;
+    }
+        public String exist() {
+        System.out.println("coucou");
+        if (save().equals("signup")) {
+            System.out.println("exsits");
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Email existe!"));
+            return "signup_Entreprise";
+        } else {
+            System.out.println("not exsits");
+            return "EntrepriseList";
+        }
     }
 }

@@ -16,13 +16,17 @@ import javax.enterprise.context.*;
 import session.AdresseManager;
 import session.UtilisateurManager;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+
 /**
  *
  * @author liu
  */
 @Named(value = "inscriptionUserMBean")
 @RequestScoped
-
 public class InscriptionUserMBean implements Serializable {
 
     private Map<String, String> settings;
@@ -45,10 +49,11 @@ public class InscriptionUserMBean implements Serializable {
     }
 
     public String save() {
-        if( userM.emailUsed(settings.get("mail")) ){
-            return "ERROR.xhtml?msg=EmailExisted";
+        if (userM.emailUsed(settings.get("mail"))) {
+
+            return "signup";
         }
-        
+
         adr.setIdAdresse(adrM.nextId());
         adr.setNumEtRue(settings.get("rue"));
         adr.setComple(settings.get("compl"));
@@ -74,5 +79,17 @@ public class InscriptionUserMBean implements Serializable {
 
     public Map<String, String> getSettings() {
         return settings;
+    }
+
+    public String exist() {
+        System.out.println("coucou");
+        if (save().equals("signup")) {
+            System.out.println("exsits");
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Email existe!"));
+            return "signup";
+        } else {
+            System.out.println("not exsits");
+            return "UtilisateurList";
+        }
     }
 }
