@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+    
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="IdE:" for="idE" />
+                    <h:inputText id="idE" value="#{entrepriseMBean.details.idE}" title="IdE" required="true" requiredMessage="The IdE field is required."/>
+                    <h:outputLabel value="NomE:" for="nomE" />
+                    <h:inputText id="nomE" value="#{entrepriseMBean.details.nomE}" title="NomE" />
+                    <h:outputLabel value="MailE:" for="mailE" />
+                    <h:inputText id="mailE" value="#{entrepriseMBean.details.mailE}" title="MailE" />
+                    <h:outputLabel value="PassE:" for="passE" />
+                    <h:inputText id="passE" value="#{entrepriseMBean.details.passE}" title="PassE" />
+                    <h:outputLabel value="TelE:" for="telE" />
+                    <h:inputText id="telE" value="#{entrepriseMBean.details.telE}" title="TelE" />
+                    <h:outputLabel value="ResuE:" for="resuE" />
+                    <h:inputTextarea rows="4" cols="30" id="resuE" value="#{entrepriseMBean.details.resuE}" title="ResuE" />
+                    <h:outputLabel value="ConsulE:" for="consulE" />
+                    <h:inputText id="consulE" value="#{entrepriseMBean.details.consulE}" title="ConsulE" />
+                    <h:outputLabel value="Validation:" for="validation" />
+                    <h:inputText id="validation" value="#{entrepriseMBean.details.validation}" title="Validation" />
+                    <h:outputLabel value="Siret:" for="siret" />
+                    <h:inputText id="siret" value="#{entrepriseMBean.details.siret}" title="Siret" />
+                    <h:outputLabel value="Rib:" for="rib" />
+                    <h:inputText id="rib" value="#{entrepriseMBean.details.rib}" title="Rib" />
+                    <h:outputLabel value="DateModif:" for="dateModif" />
+                    <h:inputText id="dateModif" value="#{entrepriseMBean.details.dateModif}" title="DateModif" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="AdrE:" for="adrE" />
+                    <h:selectOneMenu id="adrE" value="#{entrepriseMBean.details.adrE}" title="AdrE" >
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{fixme}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

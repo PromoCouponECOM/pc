@@ -51,4 +51,11 @@ public class EntrepriseManager {
             return new Integer(0);
         return res+1;
     }
+
+    public Entreprise getEntrepriseByName(String entrerpise) {
+        Query query = em.createNamedQuery("Entreprise.findByNomE");
+        query.setParameter("nomE", entrerpise);
+        Entreprise res = (Entreprise)query.getSingleResult();        
+        return res;
+    }
 }

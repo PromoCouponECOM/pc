@@ -6,6 +6,7 @@ package managedbeans;
 
 import entities.Entreprise;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -38,6 +39,14 @@ public class EntrepriseMBean implements Serializable {
             entreprises = entrepriseManager.getAllEntreprise();
         }
         return entreprises;
+    }
+    
+    public List<String> getNameEntrep(){
+        List<String> res = new ArrayList<String>();
+        for(Entreprise e : getEntreprises()){
+            res.add(e.getNomE());
+        }
+        return res;
     }
 
     public Entreprise getDetails() {

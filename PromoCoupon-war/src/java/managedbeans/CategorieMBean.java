@@ -6,10 +6,11 @@ package managedbeans;
 
 import entities.Categorie;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
+import javax.faces.model.SelectItem;
 import javax.inject.Named;
 import session.CategorieManager;
 
@@ -24,6 +25,7 @@ public class CategorieMBean implements Serializable{
     private CategorieManager categorieManager;
     private List<Categorie> categories;
     private Categorie cat;
+
     
     public CategorieMBean() {
         cat = new Categorie();
@@ -39,6 +41,14 @@ public class CategorieMBean implements Serializable{
     private void refresh() {
          if((categories == null) || (categories.isEmpty()))
             categories = categorieManager.getAllCategorie();
+    }
+    
+    public List<SelectItem> getCatg(){
+        List<SelectItem> res = new ArrayList<SelectItem>();
+        for(Categorie c : getCategories()){
+            res.add(new SelectItem(c.getNomCateg()));
+        }
+        return res;
     }
 
     /** 

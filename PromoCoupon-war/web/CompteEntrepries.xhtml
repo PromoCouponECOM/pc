@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/menu.css" />
+        <link rel="stylesheet" href="css/toolbar.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#boxLogin').hide(); //Si l'utilisateur a javascript on cache la box de login pour pas surcharger la page
+
+                $('.click_connect').click(function() {
+                    $('#boxLogin').fadeIn(400);
+                });
+
+                $('.fermer').click(function() {
+                    $('#boxLogin').fadeOut(400);
+                });
+
+                $('#mdpPerdu').click(function() {
+                    erreur("mdp_perdu");
+                    return false;
+                });
+
+                $('.field').focus(function() { //Supprime les textes par défauts des input lors du click sur ceux-ci
+                    if ($(this).val() == 'Email' || $(this).val() == 'Mot de passe' || $(this).val() == 'Rechercher') {
+                        $(this).val('');
+                    }
+                });
+
+                $('#listeVille').hide(); //Si l'utilisateur a javascript on cache l'affichage des villes
+
+                $('.click_display_ville').click(function() {
+                    if ($('#listeVille').is(':visible')) {
+                        $('#listeVille').fadeOut(400);
+                    }
+                    else {
+                        $('#listeVille').fadeIn(400);
+                    }
+                });
+            });
+        </script>
+
+        <title>Vos offres</title>
+    </h:head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <nav>
+                    <div id="titre_principal">
+                        <a href="index.xhtml"><span id="promo">Promo</span><span id="coupon">Coupon</span></a>
+                    </div>
+                    <div id="navigation">
+                        <ul>
+                            <li><a href="OffresEntreprise.xhtml" style="color:#000000;">Vos Offres</a></li>
+                            <li><a href="CompteEntrepries.xhtml" style="color:#FFFFFF;"> Votre Compte</a></li>
+                        </ul>
+                    </div>
+                    <div id="compte">						
+                        <a href="#" class="click_connect">S'identifier</a> | <a href="signup.xhtml">S'inscrire</a>
+                    </div>
+                    <div id="boxLogin">
+                        <h3>Votre Compte</h3>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="fermer" class="fermer" href="#">fermer</a>
+                        <form action="" method="post" name="form_connexion">
+                            <input class="field" name="email" type="text" style="width:150px; height:13px;" value="Email" />
+                            <input class="field" name="password" type="password" style="width:150px; height:13px;" value="Mot de passe" />
+                            <input name="submit" type="submit" value="ok"/>
+                        </form>
+                        <a id="mdpPerdu" href="#" style="font-size:11px;">Mot de passe perdu ?</a>
+                    </div>
+
+                </nav>
+            </header>
+
+            <section>
+                <nav>
+                    <div id="vosoffremenu">
+                        <ul class="menu-deroulant">
+                            <li><a href="modifierinfoEntreprise.xhtml">Modifier informations</a>
+                            </li>
+                            <li><a href="modifierIdenEntreprise.xhtml">Modifier identificant</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <article>
+                    <div id="nouelleoffre">
+                        <h1>Vos offres</h1>
+                        <p>Les offres de l'entreprise</p>
+                    </div>
+
+                </article>
+            </section>
+            <footer>
+                Conditions d'utilisatio etc... gna gna gna
+            </footer>
+        </div>
+
+        <aside>			 
+            <div id="options" class="barredoutils">
+                <ul>
+                    <li><a href="#"><img src="icones/Globe.png" width="50%" height="50%" /></a></li>
+                    <li><a href="#"><img src="icones/Email.png" width="50%" height="50%" /></a></li>
+                    <li><a href="#"><img src="icones/Light.png" width="50%" height="50%" /></a></li>
+                </ul>
+            </div>             
+        </aside>
+
+    </body>
+</html>
+

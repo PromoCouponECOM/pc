@@ -48,7 +48,7 @@ public class InscriptEntrepriseMBean implements Serializable {
     }
     
     
-    public void save(){
+    public String save(){
         
         //update db adresse
         adr.setIdAdresse(adrM.nextId());
@@ -73,6 +73,8 @@ public class InscriptEntrepriseMBean implements Serializable {
         entrp.setDateModif(new Date());
         entrp.setValidation(new Integer(0));
         entM.update(entrp);
+        
+        return "EntrepriseList";
     }
     
      public Map<String, String> getSettings() {

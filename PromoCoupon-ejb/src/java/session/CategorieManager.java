@@ -50,4 +50,11 @@ public class CategorieManager {
         query.setParameter("nomCateg", nomCateg);
         return !query.getResultList().isEmpty();
     }
+
+    public Categorie getCategorieByName(String selected) {
+        Query query = em.createNamedQuery("Categorie.findByNomCateg");
+        query.setParameter("nomCateg", selected);
+        Categorie res = (Categorie)query.getSingleResult();
+        return res;
+    }
 }

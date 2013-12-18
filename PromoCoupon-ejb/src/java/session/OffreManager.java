@@ -55,11 +55,11 @@ public class OffreManager {
         em.persist(object);
     }
     
-    public Integer nextId(){
+    public Long nextId(){
         Query query = em.createNamedQuery("Offre.maxId");
-        Integer res = (Integer)query.getResultList().get(0);
+        Long res = (Long)query.getResultList().get(0);
         if(res==null)
-            return new Integer(0);
+            return new Long(0);
         return res+1;
     }
     

@@ -1,10 +1,10 @@
-#menu-deroulant
+.menu-deroulant
 {
 padding: 0px;
 margin-top: 40px;
 }
 
-#menu-deroulant li
+.menu-deroulant li
 {
 padding: 5px 0px;
 width: 100%;
@@ -12,7 +12,7 @@ list-style-type: none;
 position: relative;
 }
 
-#menu-deroulant ul
+.menu-deroulant ul
 {
 padding: 0;
 left:100%;
@@ -25,32 +25,32 @@ overflow:hidden;
 float: left;
 }
 
-#menu-deroulant li:first-child{
+.menu-deroulant li:first-child{
 border-radius:8px 0 0 0;
 }
 
-#menu-deroulant li:last-child{
+.menu-deroulant li:last-child{
 border-radius:0 0 0 8px;
 }
 
-#menu-deroulant ul li{
+.menu-deroulant ul li{
 display:inherit;
 border-radius:0;
 }
 
-#menu-deroulant ul li:hover{
+.menu-deroulant ul li:hover{
 border-radius:0;
 }
 
-#menu-deroulant ul li:first-child{
+.menu-deroulant ul li:first-child{
 border-radius:0 8px 0 0;
 }
 
-#menu-deroulant ul li:last-child{
+.menu-deroulant ul li:last-child{
 border-radius:0 0 8px 8px;
 }
 
-#menu-deroulant li:hover ul
+.menu-deroulant li:hover ul
 {
 -moz-transition: .5s all .1s;
 -webkit-transition: .5s all .1s;
@@ -59,122 +59,125 @@ max-height:20em;
 }
 
 /* background des liens menus */
-#menu-deroulant li:first-child{
+.menu-deroulant li:first-child{
 background-color: #65537A;
 background-image:-webkit-linear-gradient(top, #65537A 0%, #2A2333 100%);
 background-image:linear-gradient(to bottom, #65537A 0%, #2A2333 100%);
 }
-#menu-deroulant li:nth-child(2){
+.menu-deroulant li:nth-child(2){
 background-color: #729EBF;
 background-image: -webkit-linear-gradient(top, #729EBF 0%, #333A40 100%);
 background-image:linear-gradient(to bottom, #729EBF 0%, #333A40 100%);
 }
-#menu-deroulant li:nth-child(3){
+.menu-deroulant li:nth-child(3){
 background-color: #F80098;
 background-image:-webkit-linear-gradient(top, #F80098 0%, #6A0041 100%);
 background-image:linear-gradient(to bottom, #F80098 0%, #6A0041 100%);
 }
-#menu-deroulant li:nth-child(4){
+.menu-deroulant li:nth-child(4){
 background-color: #B2B2B2;
 background-image:-webkit-linear-gradient(top, #B2B2B2 0%, #525252 100%);
 background-image:linear-gradient(to bottom, #B2B2B2 0%, #525252 100%);
 }
-#menu-deroulant li:nth-child(5){
+.menu-deroulant li:nth-child(5){
 background-color: #00E035;
 background-image:-webkit-linear-gradient(top, #00E035 0%, #005E16 100%);
 background-image:linear-gradient(to bottom, #00E035 0%, #005E16 100%);
 }
-#menu-deroulant li:nth-child(6){
+.menu-deroulant li:nth-child(6){
 background-color: #FF2121;
 background-image:-webkit-linear-gradient(top, #FF2121 0%, #5B0000 100%);
 background-image:linear-gradient(to bottom, #FF2121 0%, #5B0000 100%);
 }
-#menu-deroulant li:nth-child(7){
+.menu-deroulant li:nth-child(7){
 background-color: #FFFC00;
 background-image:-webkit-linear-gradient(top, #FFFC00 0%, #797A00 100%);
 background-image:linear-gradient(to bottom, #FFFC00 0%, #797A00 100%);
 }
-#menu-deroulant li:nth-child(8){
+.menu-deroulant li:nth-child(8){
 background-color: #CFFF6A;
 background-image:-webkit-linear-gradient(top, #CFFF6A 0%, #677F35 100%);
 background-image:linear-gradient(to bottom, #CFFF6A 0%, #677F35 100%);
 }
-#menu-deroulant li:last-child{
+.menu-deroulant li:last-child{
 background-color: #004D2F;
 background-image:-webkit-linear-gradient(top, #00AE6A 0%, #004D2F 100%);
 background-image:linear-gradient(to bottom, #00AE6A 0%, #004D2F 100%);
 }
 /* background des liens sous menus */
-#menu-deroulant li:first-child li{
+.menu-deroulant li:first-child li{
 background:#2A2333;
 }
-#menu-deroulant li:nth-child(2) li{
+.menu-deroulant li:nth-child(2) li{
 background:#333A40;
 }
-#menu-deroulant li:nth-child(3) li{
+.menu-deroulant li:nth-child(3) li{
 background:#6A0041;
 }
-#menu-deroulant li:nth-child(4) li{
+.menu-deroulant li:nth-child(4) li{
 background:#525252;
 }
-#menu-deroulant li:nth-child(5) li{
+.menu-deroulant li:nth-child(5) li{
 background:#005E16;
 }
-#menu-deroulant li:nth-child(6) li{
+.menu-deroulant li:nth-child(6) li{
 background:#5B0000;
 }
-#menu-deroulant li:nth-child(7) li{
+.menu-deroulant li:nth-child(7) li{
 background:#797A00;
 }
-#menu-deroulant li:nth-child(8) li{
+.menu-deroulant li:nth-child(8) li{
 background:#677F35;
 }
-#menu-deroulant li:last-child li{
+.menu-deroulant li:last-child li{
 background:#004D2F;
 }
 /* background des liens menus et sous menus au survol */
-#menu-deroulant li:first-child:hover, #menu-deroulant li:first-child li:hover{
+.menu-deroulant li:first-child:hover, .menu-deroulant li:first-child li:hover{
 background:#65537A;
 }
-#menu-deroulant li:nth-child(2):hover, #menu-deroulant li:nth-child(2) li:hover{
+.menu-deroulant li:nth-child(2):hover, .menu-deroulant li:nth-child(2) li:hover{
 background:#729EBF;
 }
-#menu-deroulant li:nth-child(3):hover, #menu-deroulant li:nth-child(3) li:hover{
+.menu-deroulant li:nth-child(3):hover, .menu-deroulant li:nth-child(3) li:hover{
 background: #F80098;
 }
-#menu-deroulant li:nth-child(4):hover, #menu-deroulant li:nth-child(4) li:hover{
+.menu-deroulant li:nth-child(4):hover, .menu-deroulant li:nth-child(4) li:hover{
 background:#B2B2B2;
 }
-#menu-deroulant li:nth-child(5):hover, #menu-deroulant li:nth-child(5) li:hover{
+.menu-deroulant li:nth-child(5):hover, .menu-deroulant li:nth-child(5) li:hover{
 background:#00E035;
 }
-#menu-deroulant li:nth-child(6):hover, #menu-deroulant li:nth-child(6) li:hover{
+.menu-deroulant li:nth-child(6):hover, .menu-deroulant li:nth-child(6) li:hover{
 background:#FF2121;
 }
-#menu-deroulant li:nth-child(7):hover, #menu-deroulant li:nth-child(7) li:hover{
+.menu-deroulant li:nth-child(7):hover, .menu-deroulant li:nth-child(7) li:hover{
 background: #FFFC00;
 }
-#menu-deroulant li:nth-child(8):hover, #menu-deroulant li:nth-child(8) li:hover{
+.menu-deroulant li:nth-child(8):hover, .menu-deroulant li:nth-child(8) li:hover{
 background:#CFFF6A;
 }
-#menu-deroulant li:last-child:hover, #menu-deroulant li:last-child li:hover{
+.menu-deroulant li:last-child:hover, .menu-deroulant li:last-child li:hover{
 background:#00AE6A;
 }
 
 /* les a href */
-#menu-deroulant a{
+.menu-deroulant a{
 display:block;
 padding:8px 32px;
 color:#fff;
 font-family:arial;
 }
-#menu-deroulant2 ul a{
+.menu-deroulant2 ul a{
 padding:8px 0;
 }
-#menu-deroulant li:hover li a{
+.menu-deroulant li:hover li a{
 color:#fff;
 text-transform:inherit;
 }
-#menu-deroulant li:hover a, #menu-deroulant li li:hover a{
+.menu-deroulant li:hover a, .menu-deroulant li li:hover a{
 color:#000;
+}
+.hidden{
+	display:none;
 }

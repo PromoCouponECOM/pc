@@ -2,12 +2,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <head>
+     <h:head>
 		<meta charset="utf-8" />
-        <link rel="stylesheet" href="css/style.css" />
+		        <link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/menu.css" />
-		<link rel="stylesheet" href="css/villes.css" />
 		<link rel="stylesheet" href="css/toolbar.css" />
+         <link rel="stylesheet" href="css/style.css" />
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 		<script type="text/javascript">
 		$(document).ready(function(){
@@ -44,10 +44,9 @@
 			});					
 		});
 		</script>
-		<script type="text/javascript" src="js/lieu.js"></script>
 		
-        <title>Compte</title>
-    </head>
+        <title>Vos offres</title>
+    </h:head>
     <body>
 		<div id="wrapper">
 			<header>
@@ -57,9 +56,8 @@
 					</div>
 					<div id="navigation">
 						<ul>
-							<li><a href="index.xhtml" style="color:#000000;">Accueil</a></li>
-							<li><a href="touteslespromos.xhtml" style="color:#FFFFFF;"> Toutes les promos</a></li>
-							<li><a href="verschezmoi.xhtml" style="color:#FFFFFF;">Vers chez moi</a></li>
+							<li><a href="OffresEntreprise.xhtml" style="color:#000000;">Vos Offres</a></li>
+							<li><a href="CompteEntrepries.xhtml" style="color:#FFFFFF;"> Votre Compte</a></li>
 						</ul>
 					</div>
 					<div id="compte">						
@@ -68,39 +66,41 @@
 					<div id="boxLogin">
 						<h3>Votre Compte</h3>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="fermer" class="fermer" href="#">fermer</a>
-						<form action="login.php" method="post" name="form_connexion">
+						<form action="" method="post" name="form_connexion">
 							<input class="field" name="email" type="text" style="width:150px; height:13px;" value="Email" />
 							<input class="field" name="password" type="password" style="width:150px; height:13px;" value="Mot de passe" />
 							<input name="submit" type="submit" value="ok"/>
 						</form>
 						<a id="mdpPerdu" href="#" style="font-size:11px;">Mot de passe perdu ?</a>
 					</div>
+					
 				</nav>
 			</header>
+			
 			<section>
-
+			<nav>
+			<div id="vosoffremenu">
+						<ul class="menu-deroulant">
+							<li><a href="offresEntreprise.xhtml">Consulter vos offres</a>
+							</li>
+							<li><a href="nouvelleoffre.xhtml">Proposer une offres</a>
+							</li>
+						</ul>
+					</div>
+			</nav>
+				<article>
+					<div id="nouvelleoffre">
+					
+					</div>
+					
+				</article>
 			</section>
-				
 			<footer>
 			Conditions d'utilisatio etc... gna gna gna
 			</footer>
 		</div>
 		
 		<aside>			 
-			<div id="articles" class="barredoutils">
-				<ul>
-					<li><a href="#"><img src="icones/Search.png" width="50%" height="50%" /></a>
-					<div id="coucou" class="submenu">
-					<form id="search" action="#" method="get" class="serchform">
-						<input id="searche" type="text" name="q"></input>
-						<button type="submit" title="Chercher" class="button">ok</button>
-						</form>
-					</div>
-					</li>
-					<li><a href="#"><img src="icones/history.png" width="50%" height="50%" /></a></li>
-					<li><a href="#"><img src="icones/Cart.png" width="50%" height="50%" /></a></li>
-				</ul>
-			</div>
 			<div id="options" class="barredoutils">
 				<ul>
 					<li><a href="#"><img src="icones/Globe.png" width="50%" height="50%" /></a></li>
@@ -112,3 +112,4 @@
 		
     </body>
 </html>
+

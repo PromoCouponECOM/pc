@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="IdO:" for="idO" />
+                    <h:inputText id="idO" value="#{offreMBean.offre.idO}" title="IdO" required="true" requiredMessage="The IdO field is required."/>
+                    <h:outputLabel value="Title:" for="title" />
+                    <h:inputText id="title" value="#{offreMBean.offre.title}" title="Title" />
+                    <h:outputLabel value="PrixOrigin:" for="prixOrigin" />
+                    <h:inputText id="prixOrigin" value="#{offreMBean.offre.prixOrigin}" title="PrixOrigin" />
+                    <h:outputLabel value="PrixActuel:" for="prixActuel" />
+                    <h:inputText id="prixActuel" value="#{offreMBean.offre.prixActuel}" title="PrixActuel" />
+                    <h:outputLabel value="DateDebut:" for="dateDebut" />
+                    <h:inputText id="dateDebut" value="#{offreMBean.offre.dateDebut}" title="DateDebut" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="DateFin:" for="dateFin" />
+                    <h:inputText id="dateFin" value="#{offreMBean.offre.dateFin}" title="DateFin" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="Dscription:" for="dscription" />
+                    <h:inputTextarea rows="4" cols="30" id="dscription" value="#{offreMBean.offre.dscription}" title="Dscription" />
+                    <h:outputLabel value="Image:" for="image" />
+                    <h:inputTextarea rows="4" cols="30" id="image" value="#{offreMBean.offre.image}" title="Image" />
+                    <h:outputLabel value="Conseille:" for="conseille" />
+                    <h:inputTextarea rows="4" cols="30" id="conseille" value="#{offreMBean.offre.conseille}" title="Conseille" />
+                    <h:outputLabel value="Validation:" for="validation" />
+                    <h:inputText id="validation" value="#{offreMBean.offre.validation}" title="Validation" />
+                    <h:outputLabel value="DateModif:" for="dateModif" />
+                    <h:inputText id="dateModif" value="#{offreMBean.offre.dateModif}" title="DateModif" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="NbCoupons:" for="nbCoupons" />
+                    <h:inputText id="nbCoupons" value="#{offreMBean.offre.nbCoupons}" title="NbCoupons" />
+                    <h:outputLabel value="Limite:" for="limite" />
+                    <h:inputText id="limite" value="#{offreMBean.offre.limite}" title="Limite" />
+                    <h:outputLabel value="IdE:" for="idE" />
+                    <h:selectOneMenu id="idE" value="#{offreMBean.offre.idE}" title="IdE" >
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{fixme}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="Categorie:" for="categorie" />
+                    <h:selectOneMenu id="categorie" value="#{offreMBean.offre.categorie}" title="Categorie" >
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{fixme}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandButton id="back" value="Back" action="#{offreMBean.list()}"/>  
+                <h:commandButton id="update" value="Update" action="#{offreMBean.update()}"/> 
+            </h:form>
+
+        </f:view>
+
+    </h:body>
+</html>
+

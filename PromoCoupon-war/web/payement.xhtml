@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/menu.css" />
+        <link rel="stylesheet" href="css/villes.css" />
+        <link rel="stylesheet" href="css/toolbar.css" />
+        <script type="text/javascript" src="js/hiddenaddress.js"></script>
+        <script type="text/javascript" src="js/creditcard.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript">
+            function testCreditCard() {
+                console.log("ok");
+                myCardNo = document.getElementById('carte').value;
+                console.log("ok2");
+
+                myCardType = document.getElementById('type_carte').value;
+                console.log("ok3");
+
+                console.log("ffjsjffjdfjd");
+                if (checkCreditCard(myCardNo, myCardType)) {
+                    console.log("carte invalide");
+                    alert("Credit card has a valid format")
+                }
+                else {
+                    console.log("carte invalide");
+                    alert(ccErrors[ccErrorNo])
+                }
+                ;
+            }
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#boxLogin').hide(); //Si l'utilisateur a javascript on cache la box de login pour pas surcharger la page
+
+                $('.click_connect').click(function() {
+                    $('#boxLogin').fadeIn(400);
+                });
+
+                $('.fermer').click(function() {
+                    $('#boxLogin').fadeOut(400);
+                });
+
+                $('#mdpPerdu').click(function() {
+                    erreur("mdp_perdu");
+                    return false;
+                });
+
+                $('.field').focus(function() { //Supprime les textes par défauts des input lors du click sur ceux-ci
+                    if ($(this).val() == 'Email' || $(this).val() == 'Mot de passe' || $(this).val() == 'Rechercher') {
+                        $(this).val('');
+                    }
+                });
+
+                $('#listeVille').hide(); //Si l'utilisateur a javascript on cache l'affichage des villes
+
+                $('.click_display_ville').click(function() {
+                    if ($('#listeVille').is(':visible')) {
+                        $('#listeVille').fadeOut(400);
+                    }
+                    else {
+                        $('#listeVille').fadeIn(400);
+                    }
+                });
+            });
+        </script>
+        <title>Paiement</title>
+    </h:head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <nav>
+                    <div id="titre_principal">
+                        <a href="index.xhtml"><span id="promo">Promo</span><span id="coupon">Coupon</span></a>
+                    </div>
+                    <div id="navigation">
+                        <ul>
+                            <li><a href="index.xhtml" style="color:#FFFFFF;">Accueil</a></li>
+                            <li><a href="touteslespromos.xhtml" style="color:#FFFFFF;"> Toutes les promos</a></li>
+                            <li><a href="verschezmoi.xhtml" style="color:#FFFFFF;">Vers chez moi</a></li>
+                        </ul>
+                    </div>
+                    <div id="compte">						
+                        <a href="#" class="click_connect">S'identifier</a> | <a href="signup.xhtml">S'inscrire</a>
+                    </div>
+                    <div id="boxLogin">
+                        <h3>Votre Compte</h3>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="fermer" class="fermer" href="#">fermer</a>
+                        <form action="" method="post" name="form_connexion">
+                            <input class="field" name="email" type="text" style="width:150px; height:13px;" value="Email" />
+                            <input class="field" name="password" type="password" style="width:150px; height:13px;" value="Mot de passe" />
+                            <input name="submit" type="submit" value="ok"/>
+                        </form>
+                        <a id="mdpPerdu" href="#" style="font-size:11px;">Mot de passe perdu ?</a>
+                    </div>
+                </nav>
+            </header>
+
+            <section>
+                <article>
+                    <div id="client_title">
+                        Vous-êtes un nouveau client?
+                    </div>
+                    <div id="client_section">
+                        Inscrivez-vous dès maintenant est profitez nos nombreuses offres ! Ba ouais morray.
+                    </div>
+                    <h:form>
+                        <table align="center" cellspacing="10">
+                            <tbody>
+                                <tr>
+                                    <td class="titres" align="left" colspan="4" ><b> Saisir vorte carte paiement </b></td>							
+                                </tr>
+                                <tr>
+                                    <td align="right"><b> Type de carte; :*</b></td>
+                                    <td align="left"><select id="type_carte">
+                                            <option value="MasterCard">Master</option>
+                                            <option value="Visa">Visa</option>
+                                            <option value="Carte Blanche">Carte Blue</option></select></td>							
+                                </tr>
+                                <tr>
+                                    <td align="right"><b> N° de carte :*</b></td>
+                                    <td colspan="4" align="left"><input id="carte" type="text" size="25" maxlength="16"></input></td>								
+                                </tr>
+
+                                <tr>
+                                    <td align="right"><b> Expire fin* :</b></td>
+                                    <td align="right"><select id="moins_carte" onchange="VerifListe();">
+                                            <option value="01">01-Janvier</option>
+                                            <option value="02">02-Février</option>
+                                            <option value="03">03-Mars</option>
+                                            <option value="04">04-Avril</option>
+                                            <option value="05">05-Mai</option>
+                                            <option value="06">06-Juin</option>
+                                            <option value="07">07-Juillet</option>
+                                            <option value="08">08-Août</option>
+                                            <option value="09">09-Septembre</option>
+                                            <option value="10">10-Octore</option>
+                                            <option value="11">11-Novembre</option>
+                                            <option value="12">12-Décembre</option></select>/
+                                        <select id="annee_carte" onchange="VerifListe();">
+                                            <option value="14">2014</option>
+                                            <option value="15">2015</option>
+                                            <option value="16">2016</option>
+                                            <option value="17">2017</option>
+                                            <option value="18">2018</option>
+                                            <option value="19">2019</option></select></td>				
+                                    <td align="right"><b>Numéro de cortrôle*:</b></td>									
+                                    <td align="left"><p:password id="code_carte" size="10" maxlength="3"></p:password>
+                                    </td>	
+                                </tr>
+
+                                <tr>
+                                    <td class="titres" align="left" colspan="4" ><b>  Nom et adresse facturation</b></td>																	</tr>
+                                <tr>
+                                    <td align="right"><input type="radio" name="info" value="old" onclick="display()" checked="checked" ></input>Votre informations</td>
+                                    <td align="left"><input type="radio" name="info" id="new" value="new" onclick="display()"></input>Payer avec une autre carte</td>					
+                                </tr>
+                                <tr class="hidden">
+                                    <td align="right"><b> Nom* :</b></td>
+                                    <td align="left"><input id="nom" type="text" name="nom" size="24" maxlength="24"></input></td>
+                                </tr>
+                                <tr class="hidden">
+                                    <td align="right"><b> Adresse *:</b></td>
+                                    <td colspan="4" align="left"><input id="adresse" type="text" name="adresse" size="50" maxlength="50"></input></td>								
+                                </tr>
+                                <tr class="hidden">
+                                    <td align="right"><b> Ville :</b></td>					
+                                    <td align="left"><input id="ville" type="text" name="ville" size="24" maxlength="24"></input></td>			
+                                    <td align="right"><b> Code postal* :</b></td>
+                                    <td align="left"><input id="postal" type="text" name="postal" size="10" maxlength="5"></input></td>	
+                                </tr>
+                                <tr>
+
+                                    <td colspan="4" align="center"><button type="button" class="bouton" value="Valider" onclick="testCreditCard();"  ></button>Valider</td>									
+                                </tr>
+                            </tbody>
+                        </table>
+                    </h:form>
+                </article>
+            </section>
+            <footer>
+                Conditions d'utilisatio etc... gna gna gna
+            </footer>
+        </div>
+
+        <aside>			 
+            <div id="articles" class="barredoutils">
+                <ul>
+                    <li><a href="#"><img src="icones/Search.png" width="50%" height="50%" /></a>
+                        <div id="coucou" class="submenu">
+                            <form id="search" action="#" methode="get" class="serchform">
+                                <input id="searche" type="text" name="q"></input>
+                                <button type="submit" title="Chercher" class="button">ok</button>
+                            </form>
+                        </div>
+                    </li>
+                    <li><a href="#"><img src="icones/history.png" width="50%" height="50%" /></a></li>
+                    <li><a href="#"><img src="icones/Cart.png" width="50%" height="50%" /></a></li>
+                </ul>
+            </div>
+            <div id="options" class="barredoutils">
+                <ul>
+                    <li><a href="#"><img src="icones/Globe.png" width="50%" height="50%" /></a></li>
+                    <li><a href="#"><img src="icones/Email.png" width="50%" height="50%" /></a></li>
+                    <li><a href="#"><img src="icones/Light.png" width="50%" height="50%" /></a></li>
+                </ul>
+            </div>             
+        </aside>
+
+    </body>
+</html>
+

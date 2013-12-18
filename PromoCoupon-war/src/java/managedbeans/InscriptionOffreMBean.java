@@ -4,6 +4,8 @@
  */
 package managedbeans;
 
+import entities.Categorie;
+import entities.Entreprise;
 import entities.Offre;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -12,6 +14,8 @@ import java.util.Map;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import session.CategorieManager;
+import session.EntrepriseManager;
 import session.OffreManager;
 
 /**
@@ -30,10 +34,20 @@ public class InscriptionOffreMBean {
     
     @EJB
     private OffreManager offreManager;
+    @EJB
+    private CategorieManager catM;
+    @EJB
+    private EntrepriseManager entM;
+    
     private Offre offre;
     
     private Date dateDebut;
     private Date dateFin;
+    
+    
+    private String selected;
+    private String entreprise;
+
     
     public InscriptionOffreMBean() {
         settings= new HashMap<String,String>();
@@ -42,16 +56,40 @@ public class InscriptionOffreMBean {
         dateFin = new Date();
     }
     
+    public String getSelected() {
+        return selected;
+    }
+
+    public void setSelected(String selected) {
+        this.selected = selected;
+    }    
+    
+    public String getEntreprise() {
+        return entreprise;
+    }
+
+    public void setEntreprise(String entrerpise) {
+        this.entreprise = entrerpise;
+    }
+    
     public  void init (){
         offreManager = new OffreManager();
     }
     
-    public void save(){
+    public String save(){
         
         //update db adresse
-        offre.setIdO(Long.valueOf(offreManager.nextId()));
-        //TODO
-        //offre.setCategorie(new Categorie());
+        offre.setIdO(offreManager.nextId());
+        
+        Categorie c = catM.getCategorieByName(selected);
+        if(c==null)
+            return "ERROR";
+        offre.setCategorie(c);
+        
+        Entreprise e = entM.getEntrepriseByName(entreprise);
+        if(e==null) return "ERROR";
+        offre.setIdE(e);
+        
         offre.setConseille(settings.get("conseille"));
         
         offre.setDateDebut(dateDebut);
@@ -67,7 +105,10 @@ public class InscriptionOffreMBean {
         offre.setTitle(settings.get("title"));
         offre.setValidation(Integer.valueOf(settings.get("validation")));
         offre.setDateModif(new Date());
+        
         offreManager.update(offre);
+        
+        return "OffreList";
     }
     
      public Map<String, String> getSettings() {
