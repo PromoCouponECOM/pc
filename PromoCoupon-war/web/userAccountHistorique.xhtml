@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+		<meta charset="utf-8" />
+        <link rel="stylesheet" href="css/userAccount.css" />
+		<link rel="stylesheet" href="css/toolbar.css" />
+		
+        <title>Mon compte</title>
+    </head>
+    <body>
+		<div id="wrapper">
+			<header>
+				<nav>
+					<div id="titre_principal">
+						<a href="index.xhtml"><span id="promo">Promo</span><span id="coupon">Coupon</span></a>
+					</div>
+					<div id="navigation">
+						<ul>
+							<li><a href="index.xhtml" style="color:#FFFFFF;">Accueil</a></li>
+							<li><a href="touteslespromos.xhtml" style="color:#FFFFFF;"> Toutes les promos</a></li>
+							<li><a href="verschezmoi.xhtml" style="color:#FFFFFF;">Vers chez moi</a></li>
+						</ul>
+					</div>
+					<div id="compte">						
+						<a href="userAccount.xhtml">Gérer compte</a> | <a href="index.xhtml" onclick="click_disconnect()" >Se deconnecter</a>
+					</div>
+				</nav>
+			</header>
+			<section>
+				<nav>
+					<div id="userNav">
+						<ul id="userCategories">
+							<li><a href="userAccount.xhtml">Modifier mes informations personnelles</a>
+							</li>
+							<li><a href="userAccountLogs.xhtml">Modifier mon identifiant/Changer mon mot de passe</a>
+							</li>
+							<li><a href="userAccountHistorique.xhtml">Consulter mon historique d'achats</a>
+							</li>
+							<li><a href="userAccountHistorique.xhtml">Supprimer mon compte</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				<article>
+					<div id="page">
+					    
+					</div>
+				</article>
+			</section>
+				
+			<footer>
+			Conditions d'utilisatio etc... gna gna gna
+			</footer>
+		</div>
+		
+		<aside>			 
+			<div id="articles" class="barredoutils">
+				<ul>
+					<li><a href="#"><img src="icones/Search.png" width="50%" height="50%" /></a>
+					<div id="coucou" class="submenu">
+					<form id="search" action="#" method="get" class="serchform">
+						<input id="searche" type="text" name="q"></input>
+						<button type="submit" title="Chercher" class="button">ok</button>
+						</form>
+					</div>
+					</li>
+					<li><a href="#"><img src="icones/history.png" width="50%" height="50%" /></a></li>
+					<li><a href="#"><img src="icones/Cart.png" width="50%" height="50%" /></a></li>
+				</ul>
+			</div>
+			<div id="options" class="barredoutils">
+				<ul>
+					<li><a href="#"><img src="icones/Globe.png" width="50%" height="50%" /></a></li>
+					<li><a href="#"><img src="icones/Email.png" width="50%" height="50%" /></a></li>
+					<li><a href="#"><img src="icones/Light.png" width="50%" height="50%" /></a></li>
+				</ul>
+			</div>             
+		</aside>
+		
+    </body>
+</html>

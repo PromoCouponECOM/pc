@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+		<meta charset="utf-8" />
+        <link rel="stylesheet" href="css/userAccount.css" />
+		<link rel="stylesheet" href="css/toolbar.css" />
+		
+        <title>Mon compte</title>
+    </head>
+    <body>
+		<div id="wrapper">
+			<header>
+				<nav>
+					<div id="titre_principal">
+						<a href="index.xhtml"><span id="promo">Promo</span><span id="coupon">Coupon</span></a>
+					</div>
+					<div id="navigation">
+						<ul>
+							<li><a href="index.xhtml" style="color:#FFFFFF;">Accueil</a></li>
+							<li><a href="touteslespromos.xhtml" style="color:#FFFFFF;"> Toutes les promos</a></li>
+							<li><a href="verschezmoi.xhtml" style="color:#FFFFFF;">Vers chez moi</a></li>
+						</ul>
+					</div>
+					<div id="compte">						
+						<a href="userAccount.xhtml">Gérer compte</a> | <a href="index.xhtml" onclick="click_disconnect()" >Se deconnecter</a>
+					</div>
+				</nav>
+			</header>
+			<section>
+				<nav>
+					<div id="userNav">
+						<ul id="userCategories">
+							<li><a href="userAccount.xhtml">Modifier mes informations personnelles</a>
+							</li>
+							<li><a href="userAccountLogs.xhtml">Modifier mon identifiant/Changer mon mot de passe</a>
+							</li>
+							<li><a href="userAccountHistorique.xhtml">Consulter mon historique d'achats</a>
+							</li>
+							<li><a href="userAccountHistorique.xhtml">Supprimer mon compte</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+				<article>
+					<div id="page">
+						<b> Vous pouvez modifier vos informations puis enregistrer ces changements </b>
+					    <form method="post" action="modif_succes.xhtml" onsubmit="return verifchamps()">
+						<table align="center" cellspacing="10">
+							<tbody>
+								<tr>
+									<td class="titres" align="left" colspan="4" ><b> Vos informations personnelles </b></td>							
+								</tr>
+								<tr>
+									<td align="right"><b> Civilit&eacute;* :</b></td>
+									<td align="left"><select id="civilite" onchange="VerifListe();">
+													<option value="monsieur">Monsieur</option>
+													<option value="mademoiselle">Mademoiselle</option>
+													<option value="madame">Madame</option></select></td>							
+								</tr>
+								<tr>
+									<td align="right"><b> Nom* :</b></td>
+									<td align="left"><input id="nom" type="text" name="nom" size="24" maxlength="24"></input></td>
+									<td align="right"><b> Pr&eacute;nom* :</b></td>					
+									<td align="left"><input id="prenom" type="text" name="prenom" size="24" maxlength="24"></input></td>									
+								</tr>
+								<tr>
+									<td align="right"><b> Adresse :</b></td>
+									<td colspan="4" align="left"><input id="adresse" type="text" name="adresse" size="67" maxlength="88"></input></td>								
+								</tr>
+								<tr>
+									<td align="right"><b> Code postal* :</b></td>
+									<td align="left"><input id="postal" type="text" name="postal" size="24" maxlength="5"></input></td>
+									<td align="right"><b> Ville :</b></td>					
+									<td align="left"><input id="ville" type="text" name="ville" size="24" maxlength="24"></input></td>									
+								</tr>
+								<tr>
+									<td align="right"><b> T&eacute;l&eacute;phone :</b></td>
+									<td align="left"><input id="telephone" type="text" name="telephone" size="24" maxlength="10"></input></td>								
+								</tr>
+								<tr>
+									<td colspan="4" align="center"><input type="submit" class="bouton" value="Enregistrer"></input></td>
+								</tr>
+							</tbody>
+						</table>
+						</form>
+					</div>
+				</article>
+			</section>
+				
+			<footer>
+			Conditions d'utilisatio etc... gna gna gna
+			</footer>
+		</div>
+		
+		<aside>			 
+			<div id="articles" class="barredoutils">
+				<ul>
+					<li><a href="#"><img src="icones/Search.png" width="50%" height="50%" /></a>
+					<div id="coucou" class="submenu">
+					<form id="search" action="#" method="get" class="serchform">
+						<input id="searche" type="text" name="q"></input>
+						<button type="submit" title="Chercher" class="button">ok</button>
+						</form>
+					</div>
+					</li>
+					<li><a href="#"><img src="icones/history.png" width="50%" height="50%" /></a></li>
+					<li><a href="#"><img src="icones/Cart.png" width="50%" height="50%" /></a></li>
+				</ul>
+			</div>
+			<div id="options" class="barredoutils">
+				<ul>
+					<li><a href="#"><img src="icones/Globe.png" width="50%" height="50%" /></a></li>
+					<li><a href="#"><img src="icones/Email.png" width="50%" height="50%" /></a></li>
+					<li><a href="#"><img src="icones/Light.png" width="50%" height="50%" /></a></li>
+				</ul>
+			</div>             
+		</aside>
+		
+    </body>
+</html>

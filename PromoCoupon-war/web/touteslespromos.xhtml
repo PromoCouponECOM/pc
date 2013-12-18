@@ -1,15 +1,19 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <head>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
 		<meta charset="utf-8" />
         <link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/menu.css" />
 		<link rel="stylesheet" href="css/villes.css" />
+        <link rel="stylesheet" href="css/listeOffres.css" />
 		<link rel="stylesheet" href="css/toolbar.css" />
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-				<script type="text/javascript">
+        <link rel="stylesheet" href="css/listeOffres.css" />
+        
+		<script type="text/javascript">
 		$(document).ready(function(){
 			$('#boxLogin').hide(); //Si l'utilisateur a javascript on cache la box de login pour pas surcharger la page
 
@@ -41,14 +45,15 @@
 				else {
 					$('#listeVille').fadeIn(400);
 				}
-			});					
+			});
 		});
 		</script>
 		<script type="text/javascript" src="js/lieu.js"></script>
 		
         <title>Toutes les promos</title>
-    </head>
-    <body>
+    </h:head>
+    <h:body>
+       
 		<div id="wrapper">
 			<header>
 				<nav>
@@ -180,20 +185,70 @@
 				</nav>
 				<article>
 					<div id="best">
-						<h1>Trie</h1>
-						<p>Mettre les possibilit&eacute;s de tries ici</p>
 					</div>
 					<div id="news">
-						<h1>Les Promos</h1>
-						<p>Afficher les promotions ici</p>
-					</div>
-				</article>
-			</section>         
-			<footer>
-			Conditions d'utilisatio etc... gna gna gna
-			</footer>
-		</div>
-		
+						   <h:form id="form">  
+                                <p:dataGrid var="offre" value="#{offreMBean.offres}" columns="2"  
+                                    rows="8" paginator="true"  
+                                    paginatorTemplate="pages : {PageLinks}">
+                                    <p:commandLink update=":form:offreDetail" oncomplete="PF('offreDialog').show()" title="test">
+                                        <p:panel styleClass="panelStyleMain">
+                                            <h:panelGrid columns="1" style="width:100%;" styleClass="#{offre.categorie.nomCateg}"> 
+                                            <h:outputText value="#{offre.title}" />
+                                            </h:panelGrid>
+                                            <h:panelGrid columns="1" style="width:100%;" styleClass="panelStyle"> 
+                                                <p:graphicImage value="icones/fleche.png" />
+                                            </h:panelGrid>
+                                            <h:panelGrid columns="2" style="width:100%;" styleClass="panelStyle">
+                                                <h:outputText value="#{offre.idE.nomE}"/> <h:outputText style="align:right" value="#{offre.idE.adrE.ville}" />
+                                            </h:panelGrid>
+                                            <h:panelGrid columns="1" style="width:100%;" styleClass="panelStyle"> 
+                                                <h:outputText value="description"/>
+                                            </h:panelGrid>
+                                            <h:panelGrid columns="3" style="width:100%;" styleClass="panelStyle">
+                                                <h:outputText id="prixActuel" value="#{offre.prixActuel}€"/>
+                                                <h:outputText id="prixOrigin" value="#{offre.prixOrigin}€"/>
+                                                <h:outputText id="pourcentage" value="#{offreMBean.calculerPourcentage(offre.prixActuel, offre.prixOrigin)}"/>      
+                                            </h:panelGrid>
+                                        </p:panel>
+                                        <f:setPropertyActionListener value="#{offre}" target="#{offreMBean.selectedOffre}" /> 
+                                    </p:commandLink> 
+                                </p:dataGrid>  
+
+                               <p:dialog header="Détail de l'offre : #{offreMBean.selectedOffre.title}"  widgetVar="offreDialog" modal="true">
+                                    <p:outputPanel id="offreDetail"> 
+                                        <h:panelGrid  columns="2">  
+                                            <h:panelGrid  columns="1">
+                                                <h:outputText value="#{offreMBean.selectedOffre.categorie.nomCateg}" /> 
+                                                <p:graphicImage value="icones/fleche.png"/>  
+                                                <h:outputText value="description" />
+                                            </h:panelGrid>
+                                            <h:panelGrid  columns="2">
+                                                <h:outputLabel value="prix: " />  
+                                                <h:outputText value="#{offreMBean.selectedOffre.prixActuel}€" />
+                                                
+                                                <h:outputLabel value="prix d'origine: " />  
+                                                <h:outputText value="#{offreMBean.selectedOffre.prixOrigin}€" />
+                                                
+                                                <h:outputLabel value="reduction: " />  
+                                                <h:outputText value="#{offreMBean.calculerPourcentage(offreMBean.selectedOffre.prixActuel, offreMBean.selectedOffre.prixOrigin)}" />
+                                                
+                                                <h:outputLabel value="dates de validité" />  
+                                                <h:outputText value="#{offreMBean.dateValidite(offreMBean.selectedOffre.dateDebut, offreMBean.selectedOffre.dateFin)}" />
+                                                
+                                                <p:commandButton value="Ajouter" actionListener="#" id="withIcon" icon="ui-icon-disk" />
+                                            </h:panelGrid>
+                                        </h:panelGrid> 
+                                    </p:outputPanel>
+                                </p:dialog>  
+                            </h:form>
+                        </div>
+                    </article>
+                </section>         
+                <footer>
+                Conditions d'utilisatio etc... gna gna gna
+                </footer>
+            </div>	
 		<aside>			 
 			<div id="articles" class="barredoutils">
 				<ul>
@@ -218,5 +273,5 @@
 			</div>             
 		</aside>
 		
-    </body>
+    </h:body>
 </html>

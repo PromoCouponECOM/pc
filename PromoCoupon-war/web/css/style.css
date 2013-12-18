@@ -11,7 +11,7 @@ body
 #wrapper 
 {
 	top: 0;
-	background-color : #FFFFFF;
+	background-color : #666A86;
 	border-radius: 5px;
 	width: 95%;
 	left: 1%;
@@ -148,6 +148,7 @@ section nav, article
 {
     display: inline-block;
     vertical-align: top;
+    margin: 0;
 }
 
 section
@@ -162,7 +163,6 @@ section nav
 	width: 220px;
 	position: relative;
 	background-color : #666A86;
-	border-right:solid 2px #363636;
 }
 
 /*menu choisir la ville */
@@ -181,11 +181,13 @@ section nav
 }
 
 /*affichage des promotions*/
-article
-{
-    width: 800px;
-    margin-right: 15px;
+article{
+   width: 82%;
+   background-color : #FFFFFF;
+   border-left:solid 2px #363636;
+   margin-left : -5px;
 }
+
 
 /*barre coté droit*/
 /*aside
